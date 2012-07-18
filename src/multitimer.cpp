@@ -2,6 +2,7 @@
 #include <QApplication>
 #include <QGridLayout>
 #include <QS60Style>
+#include "counter.h"
 
 Multitimer::Multitimer(QWidget *parent):
     QWidget(parent),
@@ -46,10 +47,17 @@ Multitimer::~Multitimer()
 
 void Multitimer::newCounter()
 {
-
+    QString name = QInputDialog::getText(this, tr("Type new counter's name."), tr("Name: "));
+    if (!name.isEmpty())
+        _tabWidget->addTab(new Counter, name);
 }
 
 void Multitimer::deleteCounter()
 {
-
+    Counter *tab = dynamic_cast<Counter*>(_tabWidget->currentWidget());
+    if (tab)
+    {
+        _tabWidget->removeTab(_tabWidget->currentIndex());
+        delete tab;
+    }
 }

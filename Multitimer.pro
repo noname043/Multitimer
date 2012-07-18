@@ -11,10 +11,12 @@ TEMPLATE = app
 
 
 SOURCES += src/main.cpp \
-    src/multitimer.cpp
+    src/multitimer.cpp \
+    src/counter.cpp
 
 HEADERS  += \
-    src/multitimer.h
+    src/multitimer.h \
+    src/counter.h
 
 #CONFIG += mobility
 #MOBILITY =
@@ -28,3 +30,6 @@ symbian {
 
 OTHER_FILES += \
     README.txt
+
+FORMS += \
+    ui/counter.ui
