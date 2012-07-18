@@ -32,7 +32,10 @@
      <item>
       <widget class="QLabel" name="counterLabel">
        <property name="text">
-        <string/>
+        <string>0:00:00.00</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
        </property>
       </widget>
      </item>

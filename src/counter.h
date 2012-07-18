@@ -2,6 +2,8 @@
 #define COUNTER_H
 
 #include <QWidget>
+#include <QTimer>
+#include <QDateTime>
 #include "ui_counter.h"
 
 //! This class will work as timer or stopwatch. It will be placed in
@@ -35,9 +37,15 @@ private slots:
 
     //! Sets counter to 0.
     void reset();
+
+    //! Updates _ui->counterLabel.
+    void updateLabel();
     
 private:
     Ui::Counter *_ui;
+    QTimer *_timer;
+    QTimer *_updater;
+    qint64 _startTime;
 };
 
 #endif // COUNTER_H
