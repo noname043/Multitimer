@@ -18,8 +18,8 @@ Multitimer::Multitimer(QWidget *parent):
 
     _helpText->setReadOnly(true);
     _helpText->setHtml(tr("Select <b>Options->New</b> to create new counter. You will be asked to name it.<br>"
-                          "Tap the counter to change its time. When counter is reset it works like stopwatch. "
-                          "If it is non zero it works as timer.<br>"
+                          "Tap the counter to change its time. When counter is reset works like stopwatch. "
+                          "If its value is not zero counter works as timer. It will alarm you after timeout.<br>"
                           "You may remove current counter with <b>Options->Delete</b>."));
     _tabWidget->addTab(_helpText, "Help");
 

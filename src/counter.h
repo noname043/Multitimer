@@ -24,6 +24,11 @@ public:
     Counter(QWidget *parent = 0);
     ~Counter();
 
+    //! Converts text to time since epoch. Text must be formated: hh:mm:ss.zzz
+    //! \param  text    Text to convert.
+    //! \return         Time since epoch.
+    static qint64 timeFromString(const QString &text);
+
 private slots:
     //! This slot will be invoked after click on _counterLabel.
     //! It will show time editor.
@@ -40,12 +45,17 @@ private slots:
 
     //! Updates _ui->counterLabel.
     void updateLabel();
+
+    //! Raises alarm after _timer's timeout() signal.
+    void alarm();
     
 private:
     Ui::Counter *_ui;
     QTimer *_timer;
     QTimer *_updater;
     qint64 _startTime;
+    qint64 _endTime;
+    Mode _mode;
 };
 
 #endif // COUNTER_H

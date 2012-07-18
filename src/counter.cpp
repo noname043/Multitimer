@@ -2,6 +2,7 @@
 #include <QApplication>
 #include <QStyle>
 #include <QSpacerItem>
+#include <QMessageBox>
 
 Counter::Counter(QWidget *parent):
     QWidget(parent),
@@ -25,6 +26,8 @@ Counter::Counter(QWidget *parent):
     connect(_ui->pause, SIGNAL(clicked()), this, SLOT(pause()));
     connect(_ui->reset, SIGNAL(clicked()), this, SLOT(reset()));
     connect(_updater, SIGNAL(timeout()), this, SLOT(updateLabel()));
+    connect(_timer, SIGNAL(timeout()), this, SLOT(reset()));
+    connect(_timer, SIGNAL(timeout()), this, SLOT(alarm()));
 }
 
 Counter::~Counter()
@@ -35,9 +38,22 @@ void Counter::editCounter()
 
 void Counter::start()
 {
+    qint64 time = timeFromString(_ui->counterLabel->text());
+    // Stopwatch mode?
+    if (!time)
+    {
+        _mode = Stopwatch;
+        _startTime = QDateTime::currentMSecsSinceEpoch();
+    }
+    // ...or timer mode?
+    else
+    {
+        _mode = Timer;
+        _endTime = QDateTime::currentMSecsSinceEpoch() + time;
+        _timer->start(time);
+    }
     _ui->pause->show();
     _ui->start->hide();
-    _startTime = QDateTime::currentMSecsSinceEpoch();
     _updater->start();
 }
 
@@ -46,6 +62,7 @@ void Counter::pause()
     _ui->pause->hide();
     _ui->start->show();
     _updater->stop();
+    _timer->stop();
     updateLabel();
 }
 
@@ -53,12 +70,33 @@ void Counter::reset()
 {
     _ui->counterLabel->setText("00:00:00.000");
     _updater->stop();
+    _timer->stop();
     _ui->pause->hide();
     _ui->start->show();
 }
 
 void Counter::updateLabel()
 {
-    QDateTime time = QDateTime::fromMSecsSinceEpoch(QDateTime::currentMSecsSinceEpoch() - _startTime).toUTC();
+    QDateTime time;
+    if (_mode == Stopwatch)
+        time = QDateTime::fromMSecsSinceEpoch(QDateTime::currentMSecsSinceEpoch() - _startTime).toUTC();
+    else time = QDateTime::fromMSecsSinceEpoch(_endTime - QDateTime::currentMSecsSinceEpoch()).toUTC();
     _ui->counterLabel->setText(time.toString("hh:mm:ss.zzz"));
+}
+
+void Counter::alarm()
+{
+    QMessageBox::information(this, tr("Alarm!"), tr("Alarm!"));
+}
+
+qint64 Counter::timeFromString(const QString &text)
+{
+    qint64 t = 0;
+    QStringList list = text.split('.');
+    t += list[1].toInt(); // Miliseconds
+    list = list[0].split(':');
+    t += list[2].toInt() * 1000; // Seconds
+    t += list[1].toInt() * 60 * 1000; // Minutes
+    t += list[0].toInt() * 60 * 60 * 1000; // Hours
+    return t;
 }
