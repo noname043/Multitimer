@@ -51,13 +51,14 @@ void Counter::pause()
 
 void Counter::reset()
 {
-    _ui->counterLabel->setText("00:00:00.00");
+    _ui->counterLabel->setText("00:00:00.000");
     _updater->stop();
+    _ui->pause->hide();
+    _ui->start->show();
 }
 
 void Counter::updateLabel()
 {
-    QDateTime time;
-    time.setMSecsSinceEpoch(QDateTime::currentMSecsSinceEpoch() - _startTime);
-    _ui->counterLabel->setText(time.toString("hh:mm:ss.zz"));
+    QDateTime time = QDateTime::fromMSecsSinceEpoch(QDateTime::currentMSecsSinceEpoch() - _startTime).toUTC();
+    _ui->counterLabel->setText(time.toString("hh:mm:ss.zzz"));
 }
