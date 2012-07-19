@@ -5,6 +5,7 @@
 #include <QSpacerItem>
 #include <QMessageBox>
 #include <QFile>
+#include <QDateTimeEdit>
 
 Counter::Counter(QWidget *parent):
     QWidget(parent),
@@ -33,8 +34,7 @@ Counter::Counter(QWidget *parent):
     Phonon::createPath(_mediaObject, _audioOutput);
     _mediaObject->setCurrentSource(Phonon::MediaSource("timer.mp3"));
 
-    // TODO: replace QLabel with something that handles mouse events.
-    connect(_ui->counterLabel, SIGNAL(customContextMenuRequested(QPoint)), this, SLOT(editCounter()));
+    connect(_ui->counterLabel, SIGNAL(clicked()), this, SLOT(editCounter()));
     connect(_ui->start, SIGNAL(clicked()), this, SLOT(start()));
     connect(_ui->pause, SIGNAL(clicked()), this, SLOT(pause()));
     connect(_ui->reset, SIGNAL(clicked()), this, SLOT(reset()));
@@ -50,7 +50,15 @@ Counter::~Counter()
 {}
 
 void Counter::editCounter()
-{}
+{
+    QDateTimeEdit *editor = new QDateTimeEdit(this);
+    editor->setDisplayFormat("hh:mm:ss.zzz");
+    editor->setTime(QTime::fromString(_ui->counterLabel->text(), "hh:mm:ss.zzz"));
+    connect(editor, SIGNAL(timeChanged(QTime)), this, SLOT(changeTime(QTime)));
+    edit
+
+    delete editor;
+}
 
 void Counter::start()
 {

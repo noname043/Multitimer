@@ -13,12 +13,14 @@ TEMPLATE = app
 SOURCES += src/main.cpp \
     src/multitimer.cpp \
     src/counter.cpp \
-    src/settingsdialog.cpp
+    src/settingsdialog.cpp \
+    src/customlabel.cpp
 
 HEADERS  += \
     src/multitimer.h \
     src/counter.h \
-    src/settingsdialog.h
+    src/settingsdialog.h \
+    src/customlabel.h
 
 #CONFIG += mobility
 #MOBILITY =
