@@ -21,6 +21,9 @@
        <pointsize>16</pointsize>
       </font>
      </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
      <property name="displayFormat">
       <string>hh:mm:ss.zzz</string>
      </property>
