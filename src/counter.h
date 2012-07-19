@@ -9,6 +9,7 @@
 #include <MediaSource>
 #include "ui_counter.h"
 #include "settingsdialog.h"
+#include "editordialog.h"
 
 //! This class will work as timer or stopwatch. It will be placed in
 //! Multitimer's _tabWidget.
@@ -38,6 +39,10 @@ private slots:
     //! It will show time editor.
     void editCounter();
 
+    //! This slot will be invoked after _editor's accepted().
+    //! It wil set _ui->counterLabel.
+    void setCounter();
+
     //! Starts counter depending on mode.
     void start();
 
@@ -63,6 +68,7 @@ private:
     Phonon::AudioOutput *_audioOutput;
     Phonon::MediaObject *_mediaObject;
     SettingsDialog *_settings;
+    EditorDialog *_editor;
 };
 
 #endif // COUNTER_H

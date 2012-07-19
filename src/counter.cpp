@@ -14,7 +14,8 @@ Counter::Counter(QWidget *parent):
     _updater(new QTimer(this)),
     _audioOutput(new Phonon::AudioOutput(Phonon::MusicCategory, this)),
     _mediaObject(new Phonon::MediaObject(this)),
-    _settings(new SettingsDialog(_audioOutput, _mediaObject, this))
+    _settings(new SettingsDialog(_audioOutput, _mediaObject, this)),
+    _editor(new EditorDialog(this))
 {
     _ui->setupUi(this);
     _ui->start->setIcon(qApp->style()->standardIcon(QStyle::SP_MediaPlay));
@@ -44,6 +45,7 @@ Counter::Counter(QWidget *parent):
     connect(_timer, SIGNAL(timeout()), _mediaObject, SLOT(play()));
     connect(_ui->reset, SIGNAL(clicked()), _mediaObject, SLOT(stop()));
     connect(_ui->settings, SIGNAL(clicked()), _settings, SLOT(showMaximized()));
+    connect(_editor, SIGNAL(accepted()), this, SLOT(setCounter()));
 }
 
 Counter::~Counter()
@@ -51,13 +53,12 @@ Counter::~Counter()
 
 void Counter::editCounter()
 {
-    QDateTimeEdit *editor = new QDateTimeEdit(this);
-    editor->setDisplayFormat("hh:mm:ss.zzz");
-    editor->setTime(QTime::fromString(_ui->counterLabel->text(), "hh:mm:ss.zzz"));
-    connect(editor, SIGNAL(timeChanged(QTime)), this, SLOT(changeTime(QTime)));
-    edit
+    _editor->edit(_ui->counterLabel->text());
+}
 
-    delete editor;
+void Counter::setCounter()
+{
+    _ui->counterLabel->setText(_editor->result());
 }
 
 void Counter::start()

@@ -14,13 +14,15 @@ SOURCES += src/main.cpp \
     src/multitimer.cpp \
     src/counter.cpp \
     src/settingsdialog.cpp \
-    src/customlabel.cpp
+    src/customlabel.cpp \
+    src/editordialog.cpp
 
 HEADERS  += \
     src/multitimer.h \
     src/counter.h \
     src/settingsdialog.h \
-    src/customlabel.h
+    src/customlabel.h \
+    src/editordialog.h
 
 #CONFIG += mobility
 #MOBILITY =
@@ -40,6 +42,7 @@ OTHER_FILES += \
 
 FORMS += \
     ui/counter.ui \
-    ui/settingsdialog.ui
+    ui/settingsdialog.ui \
+    ui/editordialog.ui
 
 RESOURCES +=

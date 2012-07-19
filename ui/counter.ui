@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>268</width>
-    <height>162</height>
+    <height>188</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -41,28 +41,6 @@
        </property>
        <property name="alignment">
         <set>Qt::AlignCenter</set>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QTimeEdit" name="timeEdit">
-       <property name="font">
-        <font>
-         <pointsize>16</pointsize>
-        </font>
-       </property>
-       <property name="alignment">
-        <set>Qt::AlignCenter</set>
-       </property>
-       <property name="maximumTime">
-        <time>
-         <hour>23</hour>
-         <minute>59</minute>
-         <second>59</second>
-        </time>
-       </property>
-       <property name="displayFormat">
-        <string>hh:mm:ss.zzz</string>
        </property>
       </widget>
      </item>
