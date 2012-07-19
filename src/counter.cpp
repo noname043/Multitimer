@@ -23,7 +23,7 @@ Counter::Counter(QWidget *parent):
     _ui->pause->setVisible(false);
     _ui->reset->setIcon(qApp->style()->standardIcon(QStyle::SP_MediaStop));
 #ifdef S60V5
-    _ui->settings->setIcon(qApp->style()->standardIcon(QStyle::SP_FileDialogDetailedView);
+    _ui->settings->setIcon(qApp->style()->standardIcon(QStyle::SP_FileDialogDetailedView));
 #else
     _ui->settings->setIcon(qApp->style()->standardIcon(static_cast<QStyle::StandardPixmap>(SP_CustomToolBarList)));
 #endif
