@@ -8,7 +8,9 @@ Counter::Counter(QWidget *parent):
     QWidget(parent),
     _ui(new Ui::Counter),
     _timer(new QTimer(this)),
-    _updater(new QTimer(this))
+    _updater(new QTimer(this)),
+    _audioOutput(new Phonon::AudioOutput(Phonon::MusicCategory, this)),
+    _mediaObject(new Phonon::MediaObject(this))
 {
     _ui->setupUi(this);
     _ui->start->setIcon(qApp->style()->standardIcon(QStyle::SP_MediaPlay));
@@ -20,6 +22,11 @@ Counter::Counter(QWidget *parent):
     _updater->setSingleShot(false);
     _updater->setInterval(10);
 
+    Phonon::createPath(_mediaObject, _audioOutput);
+    Phonon::MediaSource *source = new Phonon::MediaSource(":/timer.mp3");
+    qDebug(QString::number(source->type()).toStdString().c_str());
+    _mediaObject->setCurrentSource(*source);
+
     // TODO: replace QLabel with something that handles mouse events.
     connect(_ui->counterLabel, SIGNAL(customContextMenuRequested(QPoint)), this, SLOT(editCounter()));
     connect(_ui->start, SIGNAL(clicked()), this, SLOT(start()));
@@ -28,6 +35,8 @@ Counter::Counter(QWidget *parent):
     connect(_updater, SIGNAL(timeout()), this, SLOT(updateLabel()));
     connect(_timer, SIGNAL(timeout()), this, SLOT(reset()));
     connect(_timer, SIGNAL(timeout()), this, SLOT(alarm()));
+    connect(_timer, SIGNAL(timeout()), _mediaObject, SLOT(play()));
+    connect(_ui->reset, SIGNAL(clicked()), _mediaObject, SLOT(stop()));
 }
 
 Counter::~Counter()
@@ -86,7 +95,7 @@ void Counter::updateLabel()
 
 void Counter::alarm()
 {
-    QMessageBox::information(this, tr("Alarm!"), tr("Alarm!"));
+    this->raise();
 }
 
 qint64 Counter::timeFromString(const QString &text)

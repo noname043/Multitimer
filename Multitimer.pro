@@ -4,7 +4,7 @@
 #
 #-------------------------------------------------
 
-QT       += core gui
+QT       += core gui phonon
 
 TARGET = Multitimer
 TEMPLATE = app
@@ -33,3 +33,6 @@ OTHER_FILES += \
 
 FORMS += \
     ui/counter.ui
+
+RESOURCES += \
+    res/resources.qrc

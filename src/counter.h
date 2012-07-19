@@ -4,6 +4,9 @@
 #include <QWidget>
 #include <QTimer>
 #include <QDateTime>
+#include <AudioOutput>
+#include <MediaObject>
+#include <MediaSource>
 #include "ui_counter.h"
 
 //! This class will work as timer or stopwatch. It will be placed in
@@ -56,6 +59,8 @@ private:
     qint64 _startTime;
     qint64 _endTime;
     Mode _mode;
+    Phonon::AudioOutput *_audioOutput;
+    Phonon::MediaObject *_mediaObject;
 };
 
 #endif // COUNTER_H
