@@ -26,6 +26,9 @@ symbian {
     # TARGET.CAPABILITY += 
     TARGET.EPOCSTACKSIZE = 0x14000
     TARGET.EPOCHEAPSIZE = 0x020000 0x800000
+
+    alarm.sources = res/timer.mp3
+    DEPLOYMENT += alarm
 }
 
 OTHER_FILES += \
@@ -34,5 +37,4 @@ OTHER_FILES += \
 FORMS += \
     ui/counter.ui
 
-RESOURCES += \
-    res/resources.qrc
+RESOURCES +=

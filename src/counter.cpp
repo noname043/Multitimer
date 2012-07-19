@@ -3,6 +3,7 @@
 #include <QStyle>
 #include <QSpacerItem>
 #include <QMessageBox>
+#include <QFile>
 
 Counter::Counter(QWidget *parent):
     QWidget(parent),
@@ -23,9 +24,8 @@ Counter::Counter(QWidget *parent):
     _updater->setInterval(10);
 
     Phonon::createPath(_mediaObject, _audioOutput);
-    Phonon::MediaSource *source = new Phonon::MediaSource(":/timer.mp3");
-    qDebug(QString::number(source->type()).toStdString().c_str());
-    _mediaObject->setCurrentSource(*source);
+    _mediaObject->setCurrentSource(Phonon::MediaSource("timer.mp3"));
+    _mediaObject->play();
 
     // TODO: replace QLabel with something that handles mouse events.
     connect(_ui->counterLabel, SIGNAL(customContextMenuRequested(QPoint)), this, SLOT(editCounter()));
