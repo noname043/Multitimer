@@ -6,9 +6,15 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>207</width>
-    <height>58</height>
+    <width>152</width>
+    <height>43</height>
    </rect>
+  </property>
+  <property name="maximumSize">
+   <size>
+    <width>360</width>
+    <height>16777215</height>
+   </size>
   </property>
   <property name="windowTitle">
    <string>Dialog</string>
@@ -18,7 +24,7 @@
     <widget class="QTimeEdit" name="counter">
      <property name="font">
       <font>
-       <pointsize>16</pointsize>
+       <pointsize>12</pointsize>
       </font>
      </property>
      <property name="alignment">
