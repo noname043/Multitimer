@@ -25,7 +25,6 @@ Counter::Counter(QWidget *parent):
 
     Phonon::createPath(_mediaObject, _audioOutput);
     _mediaObject->setCurrentSource(Phonon::MediaSource("timer.mp3"));
-    _mediaObject->play();
 
     // TODO: replace QLabel with something that handles mouse events.
     connect(_ui->counterLabel, SIGNAL(customContextMenuRequested(QPoint)), this, SLOT(editCounter()));
