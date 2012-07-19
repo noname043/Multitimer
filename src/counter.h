@@ -8,6 +8,7 @@
 #include <MediaObject>
 #include <MediaSource>
 #include "ui_counter.h"
+#include "settingsdialog.h"
 
 //! This class will work as timer or stopwatch. It will be placed in
 //! Multitimer's _tabWidget.
@@ -61,6 +62,7 @@ private:
     Mode _mode;
     Phonon::AudioOutput *_audioOutput;
     Phonon::MediaObject *_mediaObject;
+    SettingsDialog *_settings;
 };
 
 #endif // COUNTER_H

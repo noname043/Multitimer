@@ -12,11 +12,13 @@ TEMPLATE = app
 
 SOURCES += src/main.cpp \
     src/multitimer.cpp \
-    src/counter.cpp
+    src/counter.cpp \
+    src/settingsdialog.cpp
 
 HEADERS  += \
     src/multitimer.h \
-    src/counter.h
+    src/counter.h \
+    src/settingsdialog.h
 
 #CONFIG += mobility
 #MOBILITY =
@@ -35,6 +37,7 @@ OTHER_FILES += \
     README.txt
 
 FORMS += \
-    ui/counter.ui
+    ui/counter.ui \
+    ui/settingsdialog.ui
 
 RESOURCES +=

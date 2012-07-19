@@ -1,6 +1,7 @@
 #include "counter.h"
 #include <QApplication>
 #include <QStyle>
+#include <QS60Style>
 #include <QSpacerItem>
 #include <QMessageBox>
 #include <QFile>
@@ -11,13 +12,19 @@ Counter::Counter(QWidget *parent):
     _timer(new QTimer(this)),
     _updater(new QTimer(this)),
     _audioOutput(new Phonon::AudioOutput(Phonon::MusicCategory, this)),
-    _mediaObject(new Phonon::MediaObject(this))
+    _mediaObject(new Phonon::MediaObject(this)),
+    _settings(new SettingsDialog(_audioOutput, _mediaObject, this))
 {
     _ui->setupUi(this);
     _ui->start->setIcon(qApp->style()->standardIcon(QStyle::SP_MediaPlay));
     _ui->pause->setIcon(qApp->style()->standardIcon(QStyle::SP_MediaPause));
     _ui->pause->setVisible(false);
     _ui->reset->setIcon(qApp->style()->standardIcon(QStyle::SP_MediaStop));
+#ifdef S60V5
+    _ui->settings->setIcon(qApp->style()->standardIcon(QStyle::SP_FileDialogDetailedView);
+#else
+    _ui->settings->setIcon(qApp->style()->standardIcon(static_cast<QStyle::StandardPixmap>(SP_CustomToolBarList)));
+#endif
 
     _timer->setSingleShot(true);
     _updater->setSingleShot(false);
@@ -36,6 +43,7 @@ Counter::Counter(QWidget *parent):
     connect(_timer, SIGNAL(timeout()), this, SLOT(alarm()));
     connect(_timer, SIGNAL(timeout()), _mediaObject, SLOT(play()));
     connect(_ui->reset, SIGNAL(clicked()), _mediaObject, SLOT(stop()));
+    connect(_ui->settings, SIGNAL(clicked()), _settings, SLOT(showMaximized()));
 }
 
 Counter::~Counter()
