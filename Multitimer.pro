@@ -45,4 +45,8 @@ FORMS += \
     ui/settingsdialog.ui \
     ui/editordialog.ui
 
-RESOURCES +=
+RESOURCES += \
+    res/res.qrc
+
+CODECFORTR = UTF-8
+TRANSLATIONS += res/Multitimer_pl.ts
