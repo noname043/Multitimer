@@ -1,1 +1,5 @@
-Multitimer is simple Symbian application that allows user to create many timers/stopwatches and manage them.
+Multitimer, nah, nah, nah, simple Symbian application developed with Qt.
+
+Features:
+- multiple "counters" working as stopwatches or in countdown mode
+- alarm selected by user when countdown finishes

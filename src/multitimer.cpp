@@ -17,9 +17,9 @@ Multitimer::Multitimer(QWidget *parent):
     layout->addWidget(_tabWidget);
 
     _helpText->setReadOnly(true);
-    _helpText->setHtml(tr("Select <b>Options->New</b> to create new counter. You will be asked to name it.<br>"
-                          "Tap the counter to change its time. When counter is reset works like stopwatch. "
-                          "If its value is not zero counter works as timer. It will alarm you after timeout.<br>"
+    _helpText->setHtml(tr("Select <b>Options->New</b> to create new \"counter\". You will be asked to name it.<br>"
+                          "Tap the counter to change its value. When counter is set to 0:00:00:000 - works like stopwatch. "
+                          "If its value is not zero - counter works in countdown mode. It will alarm you after timeout.<br>"
                           "You may remove current counter with <b>Options->Delete</b>."));
     _tabWidget->addTab(_helpText, "Help");
 
