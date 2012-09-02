@@ -9,6 +9,7 @@ QT       += core gui phonon
 TARGET = Multitimer
 TEMPLATE = app
 
+ICON = res/multitimer.svg
 
 SOURCES += src/main.cpp \
     src/multitimer.cpp \

@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<!-- Converted with SVG Converter - Version 0.9.5 (Compiled Mon May 30 09:08:51 2011) - Copyright (C) 2011 Nokia -->
+<svg xmlns="http://www.w3.org/2000/svg" width="744.09448819" version="1.1" height="1052.3622047" xmlns:xlink="http://www.w3.org/1999/xlink" baseProfile="tiny" id="svg6533">
+ <defs id="defs6535">
+  <linearGradient id="linearGradient7264">
+   <stop offset="0" style="stop-color:#008000;stop-opacity:1;" id="stop7266"/>
+  </linearGradient>
+  <linearGradient id="linearGradient7151">
+   <stop offset="0" style="stop-color:#000000;stop-opacity:1;" id="stop7153"/>
+   <stop offset="1" style="stop-color:#000000;stop-opacity:0;" id="stop7155"/>
+  </linearGradient>
+  <linearGradient id="linearGradient7145">
+   <stop offset="0" style="stop-color:#000000;stop-opacity:1;" id="stop7147"/>
+  </linearGradient>
+  <linearGradient id="linearGradient6565">
+   <stop offset="0" style="stop-color:#800000;stop-opacity:1;" id="stop6567"/>
+   <stop offset="1" style="stop-color:#b48989;stop-opacity:0.99275362;" id="stop6569"/>
+  </linearGradient>
+  <radialGradient fx="481.42856" fy="523.79077" cx="481.42856" cy="523.79077" gradientTransform="matrix(1,0,0,0.91135108,0,46.433486)" id="radialGradient7159" r="241.72401" gradientUnits="userSpaceOnUse">
+   <stop offset="0" style="stop-color:#000000;stop-opacity:1;" id="stop7153"/>
+   <stop offset="1" style="stop-color:#000000;stop-opacity:0;" id="stop7155"/>
+  </radialGradient>
+ </defs>
+ <metadata id="metadata6538"/>
+ <g id="layer1">
+  <path style="fill:#6fff3d;fill-opacity:1;fill-rule:evenodd;stroke:url(#radialGradient7159);stroke-width:86.30519104;stroke-linejoin:miter;stroke-miterlimit:4.30000019;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0" id="path6563" d="m 679.99998,523.79077  c 0.0246 97.8488 -88.8860 177.1826 -198.5714 177.1826 c -109.6854 0.0000 -198.5960 -79.3338 -198.5714 -177.1826 c -0.0246 -97.8488 88.8860 -177.1826 198.5714 -177.1826 c 109.6854 -0.0000 198.5960 79.3338 198.5714 177.1826 z" transform="matrix(0.900216,0,0,1.0010485,-17.675426,-3.4063895)"/>
+ </g>
+ <g id="layer2">
+  <path style="fill:#34bf06;fill-opacity:1;fill-rule:evenodd;stroke:#259f21;stroke-width:3.61010432;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" id="path7242" d="m 614.00848,664.04056  c -10.3565 36.1082 -38.7188 64.6984 -75.4277 76.0340 L 504.06613,634.15906 z" transform="matrix(1.4402903,0.18133578,-0.15895299,1.4921339,-223.97757,-532.66676)"/>
+ </g>
+</svg>
