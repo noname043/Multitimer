@@ -29,7 +29,7 @@ HEADERS  += \
 #MOBILITY =
 
 symbian {
-    TARGET.UID3 = 0xec73e7e6
+    TARGET.UID3 = 0x2006b47d
     # TARGET.CAPABILITY += 
     TARGET.EPOCSTACKSIZE = 0x14000
     TARGET.EPOCHEAPSIZE = 0x020000 0x800000
@@ -46,4 +46,8 @@ FORMS += \
     ui/settingsdialog.ui \
     ui/editordialog.ui
 
-RESOURCES +=
+RESOURCES += \
+    res/res.qrc
+
+CODECFORTR = UTF-8
+TRANSLATIONS += res/Multitimer_pl.ts
