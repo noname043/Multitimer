@@ -10,6 +10,7 @@ TARGET = Multitimer
 TEMPLATE = app
 
 ICON = res/multitimer.svg
+VERSION = 1.0.0
 
 SOURCES += src/main.cpp \
     src/multitimer.cpp \

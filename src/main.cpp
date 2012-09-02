@@ -8,7 +8,7 @@ int main(int argc, char *argv[])
 {
     QApplication app(argc, argv);
     app.setApplicationName("Multitimer");
-    app.setApplicationVersion("v0.1");
+    app.setApplicationVersion("v1.0");
     app.setOrganizationName("Noname043");
 
     QTranslator translator;
