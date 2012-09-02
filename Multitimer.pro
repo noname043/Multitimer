@@ -34,9 +34,14 @@ symbian {
     # TARGET.CAPABILITY += 
     TARGET.EPOCSTACKSIZE = 0x14000
     TARGET.EPOCHEAPSIZE = 0x020000 0x800000
+    DEPLOYMENT.installer_header = 0x2002CCCF
 
     alarm.sources = res/timer.mp3
-    DEPLOYMENT += alarm
+    DEPLOYMENT += my_deployment
+
+    my_deployment.pkg_prerules += vendorinfo
+
+    vendorinfo += "%{\"Noname043\"}" ":\"Noname043\""
 }
 
 OTHER_FILES += \
