@@ -28,7 +28,8 @@ SettingsDialog::SettingsDialog(Phonon::AudioOutput *output, Phonon::MediaObject 
     connect(_ui->selectAlarm, SIGNAL(clicked()), this, SLOT(selectAlarmFile()));
     connect(_backAction, SIGNAL(triggered()), this, SLOT(close()));
 
-    setModal(true);
+    //setModal(true);
+    this->move(0, 26);
 }
 
 SettingsDialog::~SettingsDialog()
