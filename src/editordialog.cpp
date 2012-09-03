@@ -11,7 +11,7 @@ EditorDialog::EditorDialog(QWidget *parent):
 
     addAction(_okAction);
     addAction(_cancelAction);
-#ifndef S60V5
+#if QT_VERSION >= 0x040704
     _okAction->setIcon(qApp->style()->standardIcon(static_cast<QStyle::StandardPixmap>(SP_CustomToolBarDone)));
     _cancelAction->setIcon(qApp->style()->standardIcon(static_cast<QStyle::StandardPixmap>(SP_CustomToolBarBack)));
 #endif

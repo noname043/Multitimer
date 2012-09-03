@@ -25,7 +25,7 @@ Multitimer::Multitimer(QWidget *parent):
 
     addAction(_quitAction);
     addAction(_optionsAction);
-#ifndef S60V5
+#if QT_VERSION >= 0x040704
     _quitAction->setIcon(qApp->style()->standardIcon(static_cast<QStyle::StandardPixmap>(SP_CustomToolBarBack)));
     _optionsAction->setIcon(qApp->style()->standardIcon(QStyle::SP_TitleBarMenuButton));
 #endif

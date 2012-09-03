@@ -15,7 +15,7 @@ SettingsDialog::SettingsDialog(Phonon::AudioOutput *output, Phonon::MediaObject 
     _ui->verticalLayout->addWidget(_volume);
 
     addAction(_backAction);
-#ifndef S60V5
+#if QT_VERSION >= 0x040704
     _backAction->setIcon(qApp->style()->standardIcon(static_cast<QStyle::StandardPixmap>(SP_CustomToolBarBack)));
 #endif
     _backAction->setSoftKeyRole(QAction::NegativeSoftKey);
